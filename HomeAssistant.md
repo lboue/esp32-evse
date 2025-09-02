@@ -12,15 +12,17 @@ rest:
 
       - name: "ESP32 EVSE chargingCurrent"
         value_template: "{{ value_json['chargingCurrent'] }}"
-        #device_class: current
+        device_class: current
+        # unique_id 
         
       - name: "ESP32 EVSE consumptionLimit"
         value_template: "{{ value_json['consumptionLimit'] }}"
-        #device_class: current
+        device_class: current
         
       - name: "ESP32 EVSE chargingTimeLimit"
         value_template: "{{ value_json['chargingTimeLimit'] }}"
-        #device_class: time
+        device_class: duration
+        unit_of_measurement: "seconds"
         
       - name: "ESP32 EVSE underPowerLimit"
         value_template: "{{ value_json['underPowerLimit'] }}"
