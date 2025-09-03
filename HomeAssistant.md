@@ -31,4 +31,21 @@ rest:
         value_template: "{{ value_json['underPowerLimit'] / 1000 }}"
         device_class: power
         unit_of_measurement: "kW"
+
+binary_sensor:
+  - platform: rest
+    resource: "http://192.168.1.195/api/v1/state/"
+    name: "ESP32 EVSE available"
+    value_template: "{{ value_json['available'] }}"
+
+  - platform: rest
+    resource: "http://192.168.1.195/api/v1/state/"
+    name: "ESP32 EVSE enabled"
+    device_class: running
+    value_template: "{{ value_json['enabled'] }}"
+
+  - platform: rest
+    resource: "http://192.168.1.195/api/v1/state/"
+    name: "ESP32 EVSE limitReached"
+    value_template: "{{ value_json['limitReached'] }}"
 ```    
